@@ -1,4 +1,4 @@
-FROM arm32v7/node:8
+FROM balenalib/armv7hf-debian-node:8
 
 ENV HOST localhost
 ENV PORT 3000
