@@ -14,7 +14,7 @@ WORKDIR /usr/src/app
 
 # install dbus-python dependencies 
 RUN apt-get update && apt-get install -y \
-                phyton-debian \
+                phyton* \
 		libdbus-1-dev \
 		libdbus-glib-1-dev \
 	&& rm -rf /var/lib/apt/lists/* 
