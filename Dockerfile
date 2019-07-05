@@ -11,6 +11,9 @@ WORKDIR /usr/src/app
 RUN npm install -g --production node-gyp && \
     npm cache clean --force
 
+# cross-build to build arm containers on dockerhub
+RUN [ "cross-build-start" ]
+
 # Install Gekko dependencies
 COPY package.json .
 RUN npm install --production && \
@@ -27,8 +30,15 @@ WORKDIR ../
 # Bundle app source
 COPY . /usr/src/app
 
+# timezone
+RUN unlink /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+
 EXPOSE 3000
 RUN chmod +x /usr/src/app/docker-entrypoint.sh
 ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+
+# cross-build to build arm containers on dockerhub
+RUN [ "cross-build-end" ]
 
 CMD ["--config", "config.js", "--ui"]
