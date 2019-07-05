@@ -17,7 +17,7 @@ RUN npm install -g --production node-gyp && \
 # Install Gekko dependencies
 COPY package.json .
 RUN npm install --production && \
-    npm --add-python-to-path='true' && \  # to solve " Can't find Python executable "python", you can set the PYTHON env variable. "
+    npm --add-python-to-path='true' && \ 
     npm install --production redis@0.10.0 talib@1.0.2 tulind@0.8.7 pg && \
     npm cache clean --force
 
