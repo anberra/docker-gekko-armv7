@@ -1,4 +1,4 @@
-FROM balenalib/armv7hf-debian-node:8
+FROM balenalib/armv7hf-debian-node:10
 
 ENV HOST localhost
 ENV PORT 3000
@@ -11,9 +11,9 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # install dbus-python dependencies 
-RUN apt-get update && apt-get install -y \
-		linux-headers make python \
-	&& rm -rf /var/lib/apt/lists/* 
+#RUN apt-get update && apt-get install -y \
+#		linux-headers make python \
+#	&& rm -rf /var/lib/apt/lists/* 
   
 # Install GYP dependencies globally, will be used to code build other dependencies
 RUN npm install -g --production node-gyp && \
