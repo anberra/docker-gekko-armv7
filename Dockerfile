@@ -10,15 +10,11 @@ RUN [ "cross-build-start" ]
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-
-
 # install dbus-python dependencies 
 RUN apt-get update && apt-get install -y \
-                vim \
-		libdbus-1-dev \
-		libdbus-glib-1-dev \
+		linux-headers make python \
 	&& rm -rf /var/lib/apt/lists/* 
-
+  
 # Install GYP dependencies globally, will be used to code build other dependencies
 RUN npm install -g --production node-gyp && \
     npm cache clean --force
