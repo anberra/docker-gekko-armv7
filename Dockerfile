@@ -11,13 +11,14 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # install dbus-python dependencies 
-#RUN apt-get update && apt-get install -y \
-#		linux-headers make python \
-#	&& rm -rf /var/lib/apt/lists/* 
-RUN ln -s /usr/local/node /usr/bin/node
+RUN apt-get update && apt-get install -y \
+		gcc \
+	&& rm -rf /var/lib/apt/lists/* 
+#RUN ln -s /usr/local/node /usr/bin/node
   
 # Install GYP dependencies globally, will be used to code build other dependencies
-RUN npm install -g --production node-gyp && \
+RUN npm install -g npm@latest && \
+    npm install -g --production node-gyp && \
     npm cache clean --force
 
 # Install Gekko dependencies
