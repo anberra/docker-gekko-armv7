@@ -20,6 +20,8 @@ WORKDIR /usr/src/app
 RUN npm install -g --production npm && \
     npm install -g --production node-gyp && \
     npm cache clean --force
+    
+RUN npm config set python python2.7
 
 # Install Gekko dependencies
 COPY package.json .
