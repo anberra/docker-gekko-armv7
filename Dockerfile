@@ -14,6 +14,7 @@ WORKDIR /usr/src/app
 #RUN apt-get update && apt-get install -y \
 #		linux-headers make python \
 #	&& rm -rf /var/lib/apt/lists/* 
+RUN ln -s "$(which nodejs)" /usr/bin/node
   
 # Install GYP dependencies globally, will be used to code build other dependencies
 RUN npm install -g --production node-gyp && \
