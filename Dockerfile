@@ -1,4 +1,6 @@
-FROM node:8
+FROM arm32v6/node:8
+
+COPY qemu-arm-static /usr/bin/
 
 ENV HOST localhost
 ENV PORT 3000
