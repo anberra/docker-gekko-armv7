@@ -1,4 +1,4 @@
-FROM arm32v6/node:8
+FROM arm32v7/node:8
 
 COPY qemu-arm-static /usr/bin/
 
