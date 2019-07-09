@@ -11,9 +11,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # install dbus-python dependencies 
-#RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
+  build-essential \
 #		gcc \
-#	&& rm -rf /var/lib/apt/lists/* 
+	&& rm -rf /var/lib/apt/lists/* 
 #RUN ln -s /usr/local/node /usr/bin/node
   
 # Install GYP dependencies globally, will be used to code build other dependencies
