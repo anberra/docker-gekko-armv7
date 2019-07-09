@@ -16,7 +16,7 @@ WORKDIR /usr/src/app
 #		gcc \
 #	&& rm -rf /var/lib/apt/lists/* 
 #RUN ln -s /usr/local/node /usr/bin/node
-RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs
+
   
 # Install GYP dependencies globally, will be used to code build other dependencies
 RUN npm install -g --production npm && \
@@ -24,6 +24,7 @@ RUN npm install -g --production npm && \
     npm cache clean --force
     
 RUN npm config set python python2.7
+RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 # Install Gekko dependencies
 COPY package.json .
